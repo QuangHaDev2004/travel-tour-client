@@ -3,7 +3,11 @@ import { ClockCountdown } from "../countdown/ClockCountdown";
 import { LastMinuteDealFeatures } from "./LastMinuteDealFeatures";
 import { TourDetail } from "@/types/tour";
 
-export const HomeLastMinuteDeals = ({ tourListDeal }: { tourListDeal: TourDetail[] }) => {
+export const HomeLastMinuteDeals = ({
+  tourListDeal,
+}: {
+  tourListDeal: TourDetail[];
+}) => {
   return (
     <div className="py-[45px] sm:py-[60px]">
       <div className="container">
@@ -21,7 +25,7 @@ export const HomeLastMinuteDeals = ({ tourListDeal }: { tourListDeal: TourDetail
               sớm hôm nay!
             </p>
             <div className="mb-4 text-[20px] font-bold">Kết thúc sau</div>
-            <ClockCountdown expireDate="2025-12-18T00:00:00" />
+            <ClockCountdown expireDate="2026-07-18T00:00:00" />
             <div className="text-[16px] font-bold uppercase">GIẢM ĐẾN</div>
             <div className="text-travel-yellow text-[40px] font-bold">
               <span>990.000</span>

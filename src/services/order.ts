@@ -1,4 +1,4 @@
-import { api } from "@/libs/axios";
+import { api } from "@/lib/axios";
 import { OrderDetail } from "@/types/order";
 import { CartItem } from "@/types/store";
 

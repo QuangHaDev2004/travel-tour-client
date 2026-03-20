@@ -9,7 +9,7 @@ import { QuantityState } from "@/types/cart";
 import { CartItemsList } from "./CartItemsList";
 import { useCartStore } from "@/store/useCartStore";
 import { useEffect, useMemo, useState } from "react";
-import { useCartDetail } from "../_hooks/useCartDetail";
+import { useCartDetail } from "../hooks/useCartDetail";
 import { CartItemSkeleton } from "@/components/skeleton/CartItemSkeleton";
 
 export const CartContainer = () => {

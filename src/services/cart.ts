@@ -1,4 +1,4 @@
-import { api } from "@/libs/axios";
+import { api } from "@/lib/axios";
 import { CartItem } from "@/types/store";
 
 export const getCartDetail = async (cart: CartItem[]) => {
