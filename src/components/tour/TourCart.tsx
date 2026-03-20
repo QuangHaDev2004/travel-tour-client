@@ -19,7 +19,8 @@ export const TourCard = ({ item }: { item: TourItem }) => {
         <Link href={`/tour/detail/${item.slug}`}>
           <img
             src={
-              item.avatar || "https://placehold.co/1x1/white/black?text=No+Image"
+              item.avatar ||
+              "https://placehold.co/1x1/white/black?text=No+Image"
             }
             alt={item.name}
             className="h-full w-full object-cover transition-all duration-500 group-hover/item:scale-105"
@@ -42,7 +43,7 @@ export const TourCard = ({ item }: { item: TourItem }) => {
         <div className="text-travel-secondary/80 mb-2.5 flex flex-col gap-2 text-xs font-medium">
           <div className="flex items-center gap-2">
             <GrMapLocation size={16} />
-            <span>
+            <span className="line-clamp-1">
               Khởi Hành:{" "}
               <b className="text-travel-primary">
                 {item.locationsFromName.map((item) => item.name).join(", ") ||

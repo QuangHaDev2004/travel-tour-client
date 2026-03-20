@@ -1,5 +1,5 @@
 import { API_URL } from "@/config/api";
-import { handleResponse } from "@/libs/api";
+import { handleResponse } from "@/lib/api";
 import { CategoryTreeResponse, WebsiteInfoResponse } from "@/types/response";
 
 export const getWebsiteInfo = async (): Promise<WebsiteInfoResponse> => {

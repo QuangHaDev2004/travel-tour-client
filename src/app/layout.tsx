@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/footer/Footer";
-import { BoxContact } from "@/components/box-contact/BoxContact";
+// import { BoxContact } from "@/components/box-contact/BoxContact";
 import { ButtonBackToTop } from "@/components/button/ButtonBackToTop";
 import { QueryProvider } from "@/providers/QueryProvider";
 import { Toaster } from "sonner";
 import { getWebsiteInfo } from "@/services/home";
+import { Chatbot } from "@/components/chatbot/Chatbot";
 
 export const metadata: Metadata = {
   title: "36.Travel - Đặt Tour du lịch tiện lợi và nhanh chóng",
@@ -30,7 +31,8 @@ export default async function RootLayout({
           <Header websiteInfo={websiteInfo} />
           {children}
           <Footer websiteInfo={websiteInfo} />
-          <BoxContact websiteInfo={websiteInfo} />
+          {/* <BoxContact websiteInfo={websiteInfo} /> */}
+          <Chatbot />
           <ButtonBackToTop />
 
           <Toaster richColors />

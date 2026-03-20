@@ -12,6 +12,7 @@ export type TourDetail = {
     title: string;
     description: string;
   }[];
+  locationsToName: string[];
 } & TourItem;
 
 export type TourItem = {
