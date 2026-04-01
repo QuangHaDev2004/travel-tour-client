@@ -54,17 +54,17 @@ export const HeaderMenu = ({
             href=""
             className="text-travel-secondary text-[16px] font-medium capitalize"
           >
-            Tin Tức
+            Tra cứu đơn hàng
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href=""
             className="text-travel-secondary text-[16px] font-medium capitalize"
           >
             Liên Hệ
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
