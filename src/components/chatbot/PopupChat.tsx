@@ -108,7 +108,7 @@ export const PopupChat = ({ onClose }: PopupChatProps) => {
 
   return (
     <>
-      <div className="fixed right-4 bottom-24 z-[999] w-106.25 overflow-hidden rounded-lg bg-white shadow-md">
+      <div className="fixed right-4 bottom-24 z-[999] w-106.25 overflow-hidden rounded-lg bg-white shadow-2xl">
         {/* Header */}
         <div className="flex h-15 items-center justify-between bg-gray-600 p-4">
           <div className="flex items-center gap-3">
