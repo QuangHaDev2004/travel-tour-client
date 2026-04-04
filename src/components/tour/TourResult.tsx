@@ -7,6 +7,16 @@ import { EmptyState } from "@/components/common/EmptyState";
 import { Pagination } from "@/components/pagination/pagination";
 import { TourCardSkeleton } from "@/components/skeleton/TourCardSkeleton";
 
+/**
+ * Component hiển thị danh sách kết quả tour du lịch.
+ * Bao gồm bộ chọn sắp xếp, hiển thị số lượng, xử lý trạng thái Loading (Skeleton),
+ * hiển thị danh sách tour hoặc trạng thái trống và phân trang.
+ * @param {TourItem[]} props.tourList - Danh sách các tour được trả về từ API.
+ * @param {boolean} props.isLoading - Trạng thái đang tải dữ liệu.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setFilterActive - Hàm điều khiển mở Sidebar bộ lọc trên mobile.
+ * @author QuangHaDev - 02.12.2025
+ * Cập nhật bởi: QuangHaDev - 04.04.2026: Thêm props cho Empty State
+ */
 export const TourResult = ({
   tourList,
   isLoading,
@@ -73,7 +83,10 @@ export const TourResult = ({
           <Pagination />
         </>
       ) : (
-        <EmptyState />
+        <EmptyState
+          primaryMsg="Rất tiếc khi chúng tôi không tìm thấy tour bạn cần"
+          subMsg="Thay đổi nội dung để tìm kiếm các tour tuyệt vời khác nhé!"
+        />
       )}
     </>
   );

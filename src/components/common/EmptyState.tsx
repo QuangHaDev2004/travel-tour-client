@@ -1,16 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
-export const EmptyState = () => {
+type EmptyStateProps = {
+  primaryMsg: string;
+  subMsg: string;
+};
+
+/**
+ * Component hiển thị trạng thái trống khi không có dữ liệu.
+ * Bao gồm hình ảnh minh họa, thông báo chính và thông báo phụ.
+ * @param {EmptyStateProps} props - Thuộc tính bao gồm nội dung thông báo.
+ * @author QuangHaDev - 04.04.2026
+ */
+export const EmptyState = ({ primaryMsg, subMsg }: EmptyStateProps) => {
   return (
     <>
-      <div className="flex items-center flex-col">
+      <div className="flex flex-col items-center">
         <div className="w-full">
-          <img src="/assets/images/img-empty.png" alt="Empty Image" className="w-1/2 h-auto mx-auto" />
+          <img
+            src="/assets/images/img-empty.png"
+            alt="Empty Image"
+            className="mx-auto h-auto w-1/2"
+          />
         </div>
-        <div className="text-2xl font-bold text-travel-primary mt-6 mb-3">
-          Rất tiếc khi chúng tôi không tìm thấy tour bạn cần
+        <div className="text-travel-primary mt-6 mb-3 text-2xl font-bold">
+          {primaryMsg}
         </div>
-        <div className="text-sm text-travel-secondary italic font-normal">
-          Thay đổi nội dung để tìm kiếm các tour tuyệt vời khác nhé!
+        <div className="text-travel-secondary text-sm font-normal italic">
+          {subMsg}
         </div>
       </div>
     </>
