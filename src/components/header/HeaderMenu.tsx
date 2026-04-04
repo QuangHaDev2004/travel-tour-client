@@ -2,6 +2,12 @@ import { CategoryTree } from "@/types/home";
 import Link from "next/link";
 import { FaCaretDown } from "react-icons/fa6";
 
+/**
+ * Component menu chính trên Header
+ * Hỗ trợ render danh mục đa cấp và các liên kết điều hướng tĩnh.
+ * @param {CategoryTree[]} props.categoryTree - Mảng dữ liệu cây danh mục.
+ * @author QuangHaDev - 01.12.2025
+ */
 export const HeaderMenu = ({
   categoryTree,
 }: {
@@ -51,10 +57,10 @@ export const HeaderMenu = ({
 
         <li>
           <Link
-            href=""
+            href="/order-tracking"
             className="text-travel-secondary text-[16px] font-medium capitalize"
           >
-            Tra cứu đơn hàng
+            Tra cứu Booking
           </Link>
         </li>
         {/* <li>
