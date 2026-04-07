@@ -8,7 +8,15 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { OrderInputs, orderSchema } from "@/validates/order";
 import { useCreateOrder } from "@/hooks/order/useCreateOrder";
 
-export const BookingForm = () => {
+type BookingFormProps = {
+  setIsRedirecting: (value: boolean) => void;
+};
+
+/**
+ * Component Form đặt tour và chọn phương thức thanh toán.
+ * @author QuangHaDev - 28.11.2025
+ */
+export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
   const router = useRouter();
   const { cart, removeFromCart } = useCartStore();
   const {
@@ -42,18 +50,21 @@ export const BookingForm = () => {
 
     mutate(dataFinal, {
       onSuccess: (data) => {
-        cart.forEach((item) => {
-          if (item.checked) removeFromCart(item.tourId);
-        });
         reset();
 
         switch (dataFinal.paymentMethod) {
           case "money":
           case "bank":
+            setIsRedirecting(true);
+
             toast.success(data.message);
             router.push(
               `/order/success?orderCode=${data.orderCode}&phone=${dataFinal.phone}`,
             );
+
+            cart.forEach((item) => {
+              if (item.checked) removeFromCart(item.tourId);
+            });
             break;
 
           case "zalopay":

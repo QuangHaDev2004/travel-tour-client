@@ -12,12 +12,17 @@ import { useEffect, useMemo, useState } from "react";
 import { useCartDetail } from "../hooks/useCartDetail";
 import { CartItemSkeleton } from "@/components/skeleton/CartItemSkeleton";
 
+/**
+ * Component Container quản lý toàn bộ giao diện và logic của giỏ hàng.
+ * @author QuangHaDev - 04.12.2025
+ */
 export const CartContainer = () => {
   const { cart, updateCartItem, removeFromCart, checkCartItem } =
     useCartStore();
   const { data, isLoading } = useCartDetail({ cart });
   const cartDetail: CartDetail[] = useMemo(() => data?.cart ?? [], [data]);
   const [quantities, setQuantities] = useState<QuantityState>({});
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   // display default quantity
   useEffect(() => {
@@ -62,7 +67,7 @@ export const CartContainer = () => {
               Array(3)
                 .fill("")
                 .map((_, index) => <CartItemSkeleton key={index} />)
-            ) : cartDetail.length === 0 ? (
+            ) : cartDetail.length === 0 && !isRedirecting ? (
               <EmptyCart />
             ) : (
               <>
@@ -85,7 +90,9 @@ export const CartContainer = () => {
           </div>
         </div>
 
-        {cartDetail && cartDetail.length > 0 && <BookingForm />}
+        {cartDetail && cartDetail.length > 0 && (
+          <BookingForm setIsRedirecting={setIsRedirecting} />
+        )}
       </div>
     </>
   );
