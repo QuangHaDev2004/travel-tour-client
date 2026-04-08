@@ -6,6 +6,7 @@ import { CategoryDetail } from "@/types/category";
 import { Filter } from "@/components/filter/Filter";
 import { TourResult } from "@/components/tour/TourResult";
 import { useCategoryTourList } from "@/hooks/useTourList";
+import { Pagination } from "@/components/pagination/pagination";
 
 export const CategoryContainer = ({
   slug,
@@ -19,6 +20,8 @@ export const CategoryContainer = ({
   const [filterActive, setFilterActive] = useState(false);
   const { data, isLoading } = useCategoryTourList({ slug });
   const tourList: TourItem[] = data?.tourList ?? [];
+  const pagination = data?.pagination;
+  const totalRecord = data?.pagination?.totalRecord ?? 0;
 
   return (
     <>
@@ -46,7 +49,10 @@ export const CategoryContainer = ({
                 tourList={tourList}
                 isLoading={isLoading}
                 setFilterActive={setFilterActive}
+                totalRecord={totalRecord}
               />
+
+              {pagination && <Pagination pagination={pagination} />}
             </div>
           </div>
         </div>

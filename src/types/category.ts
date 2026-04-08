@@ -10,3 +10,10 @@ export type BreadCrumbDetail = {
   avatar: string;
   slug: string;
 };
+
+export type TPagination = {
+  skip: number;
+  totalRecord: number;
+  totalPage: number;
+  currentPage: number;
+};
