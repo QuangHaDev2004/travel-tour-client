@@ -4,7 +4,6 @@ import { FiFilter } from "react-icons/fi";
 import { sortList } from "@/constants/sort";
 import { TourCard } from "@/components/tour/TourCart";
 import { EmptyState } from "@/components/common/EmptyState";
-import { Pagination } from "@/components/pagination/pagination";
 import { TourCardSkeleton } from "@/components/skeleton/TourCardSkeleton";
 
 /**
@@ -21,10 +20,12 @@ export const TourResult = ({
   tourList,
   isLoading,
   setFilterActive,
+  totalRecord,
 }: {
   tourList: TourItem[];
   isLoading: boolean;
   setFilterActive: React.Dispatch<React.SetStateAction<boolean>>;
+  totalRecord: number;
 }) => {
   return (
     <>
@@ -48,7 +49,7 @@ export const TourResult = ({
         <div className="text-travel-gray-900 text-sm font-normal">
           <span>Tất cả: </span>
           <span className="text-travel-primary text-[16px] font-bold">
-            38 tour
+            {totalRecord} tour
           </span>
         </div>
 
@@ -79,8 +80,6 @@ export const TourResult = ({
               <TourCard key={item.id} item={item} />
             ))}
           </div>
-
-          <Pagination />
         </>
       ) : (
         <EmptyState

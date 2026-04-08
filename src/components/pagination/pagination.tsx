@@ -1,24 +1,70 @@
+"use client";
+import { TPagination } from "@/types/category";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 
-export const Pagination = () => {
+type PaginationProps = {
+  pagination: TPagination;
+};
+
+export const Pagination = ({ pagination }: PaginationProps) => {
+  const { totalPage, currentPage } = pagination;
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const changePage = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", String(page));
+    router.push(`?${params.toString()}`);
+  };
+
+  const renderPages = () => {
+    const pages = [];
+
+    for (let i = 1; i <= totalPage; i++) {
+      pages.push(
+        <div
+          key={i}
+          onClick={() => changePage(i)}
+          className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm border text-sm ${
+            i === currentPage
+              ? "bg-travel-primary text-white"
+              : "text-travel-primary border-travel-primary"
+          } `}
+        >
+          {i}
+        </div>,
+      );
+    }
+
+    return pages;
+  };
+
   return (
-    <div className="flex items-center justify-end">
-      <div className="border-travel-primary flex h-10 w-10 cursor-pointer items-center justify-center rounded-tl-[5px] rounded-bl-[5px] border border-r-0">
+    <div className="flex items-center justify-center gap-3">
+      {/* Prev */}
+      <div
+        onClick={() => currentPage > 1 && changePage(currentPage - 1)}
+        className={`flex h-10 w-10 items-center justify-center rounded-sm border ${
+          currentPage === 1
+            ? "cursor-not-allowed opacity-50"
+            : "border-travel-primary cursor-pointer"
+        } `}
+      >
         <FaAnglesLeft className="text-travel-primary text-xs" />
       </div>
-      <div className="border-travel-primary text-travel-primary flex h-10 w-10 cursor-pointer items-center justify-center border border-r-0 text-sm">
-        1
-      </div>
-      <div className="border-travel-primary text-travel-primary flex h-10 w-10 cursor-pointer items-center justify-center border border-r-0 text-sm">
-        2
-      </div>
-      <div className="border-travel-primary text-travel-primary flex h-10 w-10 cursor-pointer items-center justify-center border border-r-0 text-sm">
-        3
-      </div>
-      <div className="border-travel-primary text-travel-primary flex h-10 w-10 cursor-pointer items-center justify-center border border-r-0 text-sm">
-        4
-      </div>
-      <div className="border-travel-primary flex h-10 w-10 cursor-pointer items-center justify-center rounded-tr-[5px] rounded-br-[5px] border">
+
+      {renderPages()}
+
+      {/* Next */}
+      <div
+        onClick={() => currentPage < totalPage && changePage(currentPage + 1)}
+        className={`flex h-10 w-10 items-center justify-center rounded-sm border ${
+          currentPage === totalPage
+            ? "cursor-not-allowed opacity-50"
+            : "border-travel-primary cursor-pointer"
+        } `}
+      >
         <FaAnglesRight className="text-travel-primary text-xs" />
       </div>
     </div>
