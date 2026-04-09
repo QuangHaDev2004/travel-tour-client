@@ -4,7 +4,10 @@ import { FiFilter } from "react-icons/fi";
 import { filterPrice } from "@/constants/filter";
 import { useTourFilter } from "@/hooks/useTourFilter";
 import { DatePickerCalendar } from "../ui/DatePickerCalendar";
-
+/**
+ * Component Filter cung cấp giao diện lọc Tour đa điều kiện.
+ * * @author QuangHaDev - 02.12.2025
+ */
 export const Filter = ({
   cityList,
   filterActive,
@@ -144,13 +147,13 @@ export const Filter = ({
 
           <button
             onClick={handleApplyFilter}
-            className="border-travel-primary text-travel-primary hover:bg-travel-primary/10 h-10 cursor-pointer rounded-md border bg-white text-sm font-medium"
+            className="border-travel-primary bg-travel-primary hover:text-travel-primary h-10 cursor-pointer rounded-md border text-sm font-medium text-white capitalize transition-all duration-300 hover:bg-white"
           >
             Áp Dụng
           </button>
           <button
             onClick={handleResetFilter}
-            className="border-travel-red text-travel-red hover:bg-travel-red/10 h-10 cursor-pointer rounded-md border bg-white text-sm font-medium"
+            className="border-travel-red text-travel-red hover:bg-travel-red/10 h-10 cursor-pointer rounded-md border bg-white text-sm font-medium capitalize"
           >
             Xóa bộ lọc
           </button>
