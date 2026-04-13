@@ -2,6 +2,7 @@
 "use client";
 import { CounterInput } from "@/components/common/CounterInput";
 import { Spinner } from "@/components/loading/Spinner";
+import { NO_IMAGE } from "@/constants/common";
 import { useCartStore } from "@/store/useCartStore";
 import { TourDetail } from "@/types/tour";
 import { useEffect, useState } from "react";
@@ -63,7 +64,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
           <div className="mb-4 flex items-center gap-3">
             <div className="aspect-[132/98] w-[103px] overflow-hidden rounded-lg sm:w-[132px]">
               <img
-                src={tourDetail.avatar}
+                src={tourDetail.avatar || NO_IMAGE}
                 alt={tourDetail.name}
                 className="h-full w-full object-cover"
               />
@@ -91,7 +92,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
               <div className="text-travel-primary font-semibold">
                 {tourDetail.locationsFromName
                   .map((item) => item.name)
-                  .join(", ")}
+                  .join(", ") || "Không xác định"}
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -100,7 +101,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                 Ngày khởi hành:
               </div>
               <div className="text-travel-primary font-semibold">
-                {tourDetail.departureDateFormat}
+                {tourDetail.departureDateFormat || "Không xác định"}
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -109,7 +110,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                 Thời gian:
               </div>
               <div className="text-travel-primary font-semibold">
-                {tourDetail.time}
+                {tourDetail.time || "Không xác định"}
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -118,7 +119,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                 Phương tiện:
               </div>
               <div className="text-travel-primary font-semibold">
-                {tourDetail.vehicle}
+                {tourDetail.vehicle || "Không xác định"}
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -127,7 +128,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                 Số chỗ còn:
               </div>
               <div className="text-travel-primary font-semibold">
-                {tourDetail.stockAdult}
+                {tourDetail.stockAdult || 0}
               </div>
             </div>
           </div>
@@ -226,7 +227,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
 
                 <button
                   onClick={handleAddToCart}
-                  className="bg-travel-primary border-travel-primary text hover:text-travel-primary h-11 w-full cursor-pointer rounded-lg border text-[16px] font-semibold text-white transition-all duration-300 hover:bg-transparent"
+                  className="text h-11 w-full cursor-pointer rounded-lg border border-red-500 bg-red-500 text-[16px] font-semibold text-white transition-all duration-300 hover:bg-white hover:text-red-500"
                 >
                   Thêm Vào Giỏ Hàng
                 </button>

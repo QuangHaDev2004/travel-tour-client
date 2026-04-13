@@ -7,12 +7,12 @@ export const TourInfo = ({ tourDetail }: { tourDetail: TourDetail }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="mt-[30px] overflow-hidden rounded-lg bg-white p-4 shadow-md sm:p-5">
-      <div className="text-travel-primary border-travel-gray-100/40 mb-4 border-b border-dashed pb-3 text-[20px] font-bold capitalize">
-        Thông tin tour
-      </div>
-      {tourDetail && (
-        <>
+    <>
+      {tourDetail.information && (
+        <div className="mt-[30px] overflow-hidden rounded-lg bg-white p-4 shadow-md sm:p-5">
+          <div className="text-travel-primary border-travel-gray-100/40 mb-4 border-b border-dashed pb-3 text-[20px] font-bold capitalize">
+            Thông tin tour
+          </div>
           <div
             className={`relative overflow-hidden text-sm ${!expanded && "max-h-52"}`}
           >
@@ -35,8 +35,8 @@ export const TourInfo = ({ tourDetail }: { tourDetail: TourDetail }) => {
               className={`text-travel-primary size-3 transition-transform duration-300 ${expanded && "rotate-180"}`}
             />
           </button>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };

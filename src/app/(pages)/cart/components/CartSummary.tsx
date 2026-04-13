@@ -9,7 +9,7 @@ export const CartSummary = ({
 }) => {
   return (
     <div className="flex flex-col gap-2 sm:gap-4">
-      <div className="text-travel-secondary flex items-center justify-between font-normal">
+      {/* <div className="text-travel-secondary flex items-center justify-between font-normal">
         <div className="text-sm">Tạm tính: </div>
         <div className="text-[16px]">
           {subTotal.toLocaleString("vi-VN")}
@@ -22,7 +22,7 @@ export const CartSummary = ({
           {discount.toLocaleString("vi-VN")}
           <span className="underline">đ</span>
         </div>
-      </div>
+      </div> */}
       <div className="text-travel-secondary flex items-center justify-between">
         <div className="text-sm">Thanh toán: </div>
         <div className="text-travel-primary text-[22px] font-bold">
