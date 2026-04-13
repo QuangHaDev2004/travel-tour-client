@@ -1,7 +1,7 @@
 "use client";
 import { EmptyCart } from "./EmptyCart";
 import { CartHeader } from "./CartHeader";
-import { CartCoupon } from "./CartCoupon";
+// import { CartCoupon } from "./CartCoupon";
 import { CartDetail } from "@/types/store";
 import { CartSummary } from "./CartSummary";
 import { BookingForm } from "./BookingForm";
@@ -79,7 +79,7 @@ export const CartContainer = () => {
                   checkCartItem={checkCartItem}
                   updateCartItem={updateCartItem}
                 />
-                <CartCoupon />
+                {/* <CartCoupon /> */}
                 <CartSummary
                   subTotal={subTotal}
                   discount={discount}

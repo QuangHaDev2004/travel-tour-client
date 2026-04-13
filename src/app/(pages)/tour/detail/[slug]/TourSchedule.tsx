@@ -19,7 +19,7 @@ export const TourSchedule = ({ tourDetail }: { tourDetail: TourDetail }) => {
       <h2 className="text-travel-primary mb-4 text-center text-2xl font-bold capitalize">
         Lịch trình tour
       </h2>
-      {tourDetail?.schedules && tourDetail?.schedules.length > 0 && (
+      {tourDetail?.schedules && tourDetail?.schedules.length > 0 ? (
         <div className="flex flex-col gap-4">
           {tourDetail.schedules.map((item, index) => {
             const expand = expandItems[index];
@@ -56,6 +56,11 @@ export const TourSchedule = ({ tourDetail }: { tourDetail: TourDetail }) => {
               </div>
             );
           })}
+        </div>
+      ) : (
+        <div className="text-travel-secondary text-center font-medium italic">
+          Chưa có lịch trình cho tour này. Vui lòng liên hệ với chúng tôi để
+          biết thêm chi tiết.
         </div>
       )}
     </div>

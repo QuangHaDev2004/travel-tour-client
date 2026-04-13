@@ -35,7 +35,7 @@ export default async function RootLayout({
           <Chatbot />
           <ButtonBackToTop />
 
-          <Toaster richColors />
+          <Toaster richColors closeButton />
         </QueryProvider>
       </body>
     </html>

@@ -52,7 +52,9 @@ export const CategoryContainer = ({
                 totalRecord={totalRecord}
               />
 
-              {pagination && <Pagination pagination={pagination} />}
+              {tourList && tourList.length > 0 && (
+                <Pagination pagination={pagination} />
+              )}
             </div>
           </div>
         </div>

@@ -3,8 +3,8 @@ import { HomeLastMinuteDeals } from "@/components/home/HomeLastMinuteDeals";
 import { HomeDealsCarousel } from "@/components/home/HomeDealsCarousel";
 import { TourList } from "@/components/tour/TourList";
 import { ImageBanner } from "@/components/home/ImageBanner";
-import { LatestNews } from "@/components/home/LatestNews";
-import { FavoriteDestinations } from "@/components/home/FavoriteDestinations";
+// import { LatestNews } from "@/components/home/LatestNews";
+// import { FavoriteDestinations } from "@/components/home/FavoriteDestinations";
 import { getLastMinuteDeals, getTourList } from "@/services/home";
 
 export default async function HomePage() {
@@ -21,8 +21,8 @@ export default async function HomePage() {
       <ImageBanner src="/assets/images/section-5.jpg" />
       <TourList category={categoryTourListTwo} tour={tourListTwo} />
       <ImageBanner src="/assets/images/section-7.jpg" />
-      <FavoriteDestinations />
-      <LatestNews />
+      {/* <FavoriteDestinations /> */}
+      {/* <LatestNews /> */}
     </>
   );
 }
