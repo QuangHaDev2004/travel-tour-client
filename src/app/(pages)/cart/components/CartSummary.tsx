@@ -26,7 +26,7 @@ export const CartSummary = ({
       <div className="text-travel-secondary flex items-center justify-between">
         <div className="text-sm">Thanh toán: </div>
         <div className="text-travel-primary text-[22px] font-bold">
-          {total.toLocaleString("vi-VN")}
+          {total?.toLocaleString("vi-VN")}
           <span className="underline">đ</span>
         </div>
       </div>

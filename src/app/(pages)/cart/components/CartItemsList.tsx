@@ -119,7 +119,7 @@ export const CartItemsList = ({
                 />
                 <div className="text-travel-gray-900 flex-1 text-right">
                   <span className="text-travel-primary text-sm font-semibold sm:text-[16px]">
-                    {item.priceNewAdult.toLocaleString("vi-VN")}
+                    {item.priceNewAdult?.toLocaleString("vi-VN")}
                     <span className="underline">đ</span>
                   </span>
                   <span className="text-xs font-medium"> / Khách</span>
@@ -164,7 +164,7 @@ export const CartItemsList = ({
                 />
                 <div className="text-travel-gray-900 flex-1 text-right">
                   <span className="text-travel-primary text-sm font-semibold sm:text-[16px]">
-                    {item.priceNewChildren.toLocaleString("vi-VN")}
+                    {item.priceNewChildren?.toLocaleString("vi-VN")}
                     <span className="underline">đ</span>
                   </span>
                   <span className="text-xs font-medium"> / Khách</span>
@@ -210,7 +210,7 @@ export const CartItemsList = ({
                 />
                 <div className="text-travel-gray-900 flex-1 text-right">
                   <span className="text-travel-primary text-sm font-semibold sm:text-[16px]">
-                    {item.priceNewBaby.toLocaleString("vi-VN")}
+                    {item.priceNewBaby?.toLocaleString("vi-VN")}
                     <span className="underline">đ</span>
                   </span>
                   <span className="text-xs font-medium"> / Khách</span>

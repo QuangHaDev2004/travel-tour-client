@@ -160,7 +160,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                       />
                       <div className="text-travel-gray-900 flex-1 text-right">
                         <span className="text-travel-primary text-sm font-semibold sm:text-[16px]">
-                          {tourDetail.priceNewAdult.toLocaleString("vi-VN")}
+                          {tourDetail.priceNewAdult?.toLocaleString("vi-VN")}
                           <span className="underline">đ</span>
                         </span>
                         <span className="text-xs font-medium"> / Khách</span>
@@ -182,7 +182,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                       />
                       <div className="text-travel-gray-900 flex-1 text-right">
                         <span className="text-travel-primary text-sm font-semibold sm:text-[16px]">
-                          {tourDetail.priceNewChildren.toLocaleString("vi-VN")}
+                          {tourDetail.priceNewChildren?.toLocaleString("vi-VN")}
                           <span className="underline">đ</span>
                         </span>
                         <span className="text-xs font-medium"> / Khách</span>
@@ -204,7 +204,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                       />
                       <div className="text-travel-gray-900 flex-1 text-right">
                         <span className="text-travel-primary text-sm font-semibold sm:text-[16px]">
-                          {tourDetail.priceNewBaby.toLocaleString("vi-VN")}
+                          {tourDetail.priceNewBaby?.toLocaleString("vi-VN")}
                           <span className="underline">đ</span>
                         </span>
                         <span className="text-xs font-medium"> / Khách</span>
@@ -221,7 +221,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
                     Tổng tiền:
                   </label>
                   <div className="text-travel-primary text-[20px] font-semibold">
-                    {totalPrice.toLocaleString("vi-VN")}đ
+                    {totalPrice?.toLocaleString("vi-VN")}đ
                   </div>
                 </div>
 
@@ -238,7 +238,7 @@ export const YourTrip = ({ tourDetail }: { tourDetail: TourDetail }) => {
               </div>
             )
           ) : (
-            <div className="rounded-md bg-amber-100 px-4 py-2 text-sm font-medium text-red-900">
+            <div className="rounded-md bg-amber-100 px-4 py-2 text-sm font-medium text-rose-500">
               Số chỗ của tour Quý khách tham khảo hiện tại đang hết.
             </div>
           )}

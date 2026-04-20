@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { getOrderDetail } from "@/services/order";
 import { FaRegCircleCheck, FaRegHandPointLeft } from "react-icons/fa6";
+import { ClearCart } from "./components/ClearCart";
 
 export default async function OrderSuccessPage({
   searchParams,
@@ -31,6 +32,8 @@ export default async function OrderSuccessPage({
 
             {orderDetail && (
               <>
+                <ClearCart items={orderDetail.items} />
+
                 <div className="mb-6 rounded-md bg-white p-4 shadow-md">
                   <h2 className="text-travel-primary mb-4 text-lg font-bold">
                     Thông tin đơn hàng
@@ -142,7 +145,7 @@ export default async function OrderSuccessPage({
                                   {item.quantityAdult} x{" "}
                                 </span>
                                 <span className="text-travel-primary text-sm sm:text-[16px]">
-                                  {item.priceNewAdult.toLocaleString("vi-VN")}
+                                  {item.priceNewAdult?.toLocaleString("vi-VN")}
                                 </span>
                               </div>
                             </div>
@@ -158,7 +161,7 @@ export default async function OrderSuccessPage({
                                   {item.quantityChildren} x{" "}
                                 </span>
                                 <span className="text-travel-primary text-sm sm:text-[16px]">
-                                  {item.priceNewChildren.toLocaleString(
+                                  {item.priceNewChildren?.toLocaleString(
                                     "vi-VN",
                                   )}
                                 </span>
@@ -176,7 +179,7 @@ export default async function OrderSuccessPage({
                                   {item.quantityBaby} x{" "}
                                 </span>
                                 <span className="text-travel-primary text-sm sm:text-[16px]">
-                                  {item.priceNewBaby.toLocaleString("vi-VN")}
+                                  {item.priceNewBaby?.toLocaleString("vi-VN")}
                                 </span>
                               </div>
                             </div>
@@ -190,21 +193,21 @@ export default async function OrderSuccessPage({
                     <div className="text-travel-secondary flex items-center justify-between font-normal">
                       <div className="text-sm">Tạm tính: </div>
                       <div className="text-[16px]">
-                        {orderDetail.subTotal.toLocaleString("vi-VN")}{" "}
+                        {orderDetail.subTotal?.toLocaleString("vi-VN")}{" "}
                         <span className="underline">đ</span>
                       </div>
                     </div>
                     <div className="text-travel-secondary flex items-center justify-between font-normal">
                       <div className="text-sm">Giảm: </div>
                       <div className="text-[16px]">
-                        {orderDetail.discount.toLocaleString("vi-VN")}{" "}
+                        {orderDetail.discount?.toLocaleString("vi-VN")}{" "}
                         <span className="underline">đ</span>
                       </div>
                     </div>
                     <div className="text-travel-secondary flex items-center justify-between">
                       <div className="text-sm">Thanh toán: </div>
                       <div className="text-travel-primary text-[22px] font-bold">
-                        {orderDetail.total.toLocaleString("vi-VN")}{" "}
+                        {orderDetail.total?.toLocaleString("vi-VN")}{" "}
                         <span className="underline">đ</span>
                       </div>
                     </div>

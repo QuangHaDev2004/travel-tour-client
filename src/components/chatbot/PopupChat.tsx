@@ -198,7 +198,7 @@ export const PopupChat = ({ onClose }: PopupChatProps) => {
                           </Link>
 
                           <div className="mt-1 text-sm font-semibold text-red-500">
-                            Giá: {t.priceNewAdult.toLocaleString("vi-VN")}đ
+                            Giá: {t.priceNewAdult?.toLocaleString("vi-VN")}đ
                           </div>
 
                           <div className="mt-1 text-xs text-gray-500">

@@ -13,12 +13,12 @@ type EmptyStateProps = {
 export const EmptyState = ({ primaryMsg, subMsg }: EmptyStateProps) => {
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center text-center">
         <div className="w-full">
           <img
             src="/assets/images/img-empty.png"
             alt="Empty Image"
-            className="mx-auto h-auto w-1/2"
+            className="mx-auto h-auto w-[35%]"
           />
         </div>
         <div className="text-travel-primary mt-6 mb-3 text-2xl font-bold">
