@@ -39,7 +39,7 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
 
   const handleBookingForm: SubmitHandler<OrderInputs> = (data) => {
     if (cartCheck.length === 0) {
-      toast.error("Vui lòng chọn ít nhất 1 tour!");
+      toast.error("Vui lòng chọn ít nhất 1 tour.");
       return;
     }
 
@@ -197,9 +197,9 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 Thông tin chuyển khoản
               </div>
               <div className="text-travel-secondary flex flex-col gap-1.5 text-sm font-normal">
-                <div className="">Ngân hàng : Vietcombank</div>
-                <div className="">Tên tài khoản: Le Van A</div>
-                <div className="">STK: 0123456789</div>
+                <div className="">Ngân hàng : MB Bank</div>
+                <div className="">Tên tài khoản: NGO QUANG HA</div>
+                <div className="">STK: 2909082004</div>
               </div>
             </div>
           )}
@@ -207,9 +207,9 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
           <div className="mt-8 text-center">
             <button
               disabled={isPending}
-              className="bg-travel-primary h-[46px] w-full cursor-pointer rounded-lg text-[20px] font-semibold text-white uppercase sm:w-[480px]"
+              className={`bg-travel-primary h-[46px] w-full rounded-lg text-[20px] font-semibold text-white uppercase sm:w-[480px] ${isPending ? "cursor-not-allowed opacity-70" : "cursor-pointer"}`}
             >
-              ĐẶT Tour
+              {isPending ? "Đang xử lý..." : "Đặt tour"}
             </button>
           </div>
         </form>

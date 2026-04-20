@@ -62,7 +62,7 @@ export const TourCard = ({ item }: { item: TourItem }) => {
         </div>
         <div className="border-travel-red flex h-10 items-center justify-between rounded-4xl border">
           <div className="text-travel-primary px-3 text-[16px] font-semibold">
-            {item.priceNewAdult.toLocaleString("vi-VN") || 0}
+            {item.priceNewAdult?.toLocaleString("vi-VN") || 0}
             <span className="underline">đ</span>
           </div>
           <Link

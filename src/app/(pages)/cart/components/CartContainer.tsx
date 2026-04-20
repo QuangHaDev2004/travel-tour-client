@@ -62,7 +62,7 @@ export const CartContainer = () => {
         <div className="mb-[30px] rounded-2xl bg-white px-4 py-5 shadow-md sm:py-8">
           <CartHeader />
 
-          <div className="min-h-[300px]">
+          <div>
             {isLoading ? (
               Array(3)
                 .fill("")
