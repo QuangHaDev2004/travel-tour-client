@@ -3,9 +3,7 @@
 import { BadgeOrder } from "@/components/common/BadgeOrder";
 import { EmptyState } from "@/components/common/EmptyState";
 import { paymentStatusList } from "@/constants/order";
-import { useCancelOrder } from "@/hooks/order/useCancelOrder";
 import { OrderTracking } from "@/types/order";
-import { confirmCancel } from "@/utils/confirmCancel";
 import Link from "next/link";
 
 type SearchResultProps = {
@@ -18,15 +16,6 @@ type SearchResultProps = {
  * @author QuangHaDev - 04.04.2026
  */
 export const SearchResult = ({ orderTracking }: SearchResultProps) => {
-  const { mutate: cancelOrder, isPending } = useCancelOrder();
-
-  const handleCancel = async (orderId: string) => {
-    const ok = await confirmCancel();
-    if (!ok) return;
-
-    cancelOrder({ orderId: orderId });
-  };
-
   if (!orderTracking) {
     return null; // Chưa có dữ liệu, không hiển thị gì
   }
@@ -61,16 +50,6 @@ export const SearchResult = ({ orderTracking }: SearchResultProps) => {
                     </div>
                     <BadgeOrder status={order.status} />
                   </div>
-
-                  {order.status === "initial" &&
-                    paymentInfo?.value === "unpaid" && (
-                      <button
-                        onClick={() => handleCancel(order.orderId)}
-                        className="inline-flex h-8 cursor-pointer items-center justify-center rounded-4xl bg-rose-500 px-6 text-sm font-semibold text-white capitalize hover:bg-rose-400"
-                      >
-                        {isPending ? "Đang hủy..." : "Hủy tour"}
-                      </button>
-                    )}
                 </div>
 
                 <div className="mb-4 flex gap-10 text-sm">

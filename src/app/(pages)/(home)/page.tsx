@@ -8,9 +8,14 @@ import { ImageBanner } from "@/components/home/ImageBanner";
 import { getLastMinuteDeals, getTourList } from "@/services/home";
 
 export default async function HomePage() {
-  const { tourListDeal } = await getLastMinuteDeals();
+  const [lastMinuteDeals, tourList] = await Promise.all([
+    getLastMinuteDeals(),
+    getTourList(),
+  ]);
+
+  const { tourListDeal } = lastMinuteDeals;
   const { tourListOne, categoryTourListOne, tourListTwo, categoryTourListTwo } =
-    await getTourList();
+    tourList;
 
   return (
     <>

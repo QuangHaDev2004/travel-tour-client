@@ -40,7 +40,7 @@ export const SearchContainer = ({ cityList }: { cityList: CityItem[] }) => {
             />
 
             <div className="flex-1">
-              <h2 className="text-travel-primary mb-2.5 text-2xl font-semibold sm:text-[28px]">
+              <h2 className="text-travel-primary mb-2.5 text-2xl font-semibold sm:text-[28px] line-clamp-2">
                 Kết quả tìm kiếm{" "}
                 {keyword && (
                   <span className="">
