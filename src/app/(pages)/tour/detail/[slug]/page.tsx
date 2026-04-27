@@ -8,7 +8,7 @@ import { getTourDetail } from "@/services/tour";
 export default async function TourDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const { breadcrumb, tourDetail } = await getTourDetail(slug);
