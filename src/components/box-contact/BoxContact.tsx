@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useWebsiteInfo } from "@/hooks/home/useWebsiteInfo";
+// import { useWebsiteInfo } from "@/hooks/home/useWebsiteInfo";
 import { WebsiteInfo } from "@/types/home";
 import Link from "next/link";
 import { FaPhoneVolume } from "react-icons/fa6";
