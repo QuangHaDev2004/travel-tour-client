@@ -89,7 +89,7 @@ export const Footer = ({ websiteInfo }: { websiteInfo: WebsiteInfo }) => {
           <hr className="text-[#CCD1D2]" />
           <div className="flex flex-wrap items-center gap-y-5">
             <div className="order-1 w-full text-center text-[13px] font-medium text-[#667479] lg:order-none lg:w-[calc(50%-112px)] lg:text-left">
-              © 2025 36Travel. All rights reserved.
+              © {new Date().getFullYear()} 36Travel. All rights reserved.
             </div>
             <div className="w-full lg:w-[224px]">
               <Logo websiteInfo={websiteInfo} />

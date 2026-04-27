@@ -22,7 +22,7 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
   const {
     register,
     reset,
-    watch,
+    // watch,
     handleSubmit,
     formState: { errors },
   } = useForm<OrderInputs>({
@@ -34,7 +34,7 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
 
   const { mutate, isPending } = useCreateOrder();
 
-  const paymentMethod = watch("paymentMethod");
+  // const paymentMethod = watch("paymentMethod");
   const cartCheck = cart.filter((item) => item.checked);
 
   const handleBookingForm: SubmitHandler<OrderInputs> = (data) => {
@@ -57,14 +57,12 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
           case "bank":
             setIsRedirecting(true);
 
-            toast.success(data.message);
-            router.push(
-              `/order/success?orderCode=${data.orderCode}&phone=${dataFinal.phone}`,
-            );
-
             cart.forEach((item) => {
               if (item.checked) removeFromCart(item.tourId);
             });
+
+            toast.success(data.message);
+            router.push(`/order/pending-confirm`);
             break;
 
           case "zalopay":
@@ -88,6 +86,7 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
 
         <form onSubmit={handleSubmit(handleBookingForm)}>
           <div className="mb-[30px] grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
+            {/* Họ tên */}
             <div>
               <input
                 {...register("fullName")}
@@ -101,6 +100,8 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 </p>
               )}
             </div>
+
+            {/* Số điện thoại */}
             <div>
               <input
                 {...register("phone")}
@@ -114,6 +115,23 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 </p>
               )}
             </div>
+
+            {/* Email */}
+            <div className="sm:col-span-2">
+              <input
+                {...register("email")}
+                type="email"
+                placeholder="Nhập email"
+                className={`text-travel-secondary h-[50px] w-full rounded-md border px-5 text-sm font-medium ${errors.email ? "border-red-500" : "focus:border-travel-primary border-[#E0E0E0]"}`}
+              />
+              {errors.email && (
+                <p className="mt-1 text-sm font-medium text-red-500">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            {/* Ghi chú */}
             <textarea
               {...register("note")}
               placeholder="Ghi chú"
@@ -157,7 +175,7 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 className="h-[35px] w-[70px] rounded-md border border-[#E0E0E0] object-contain px-1"
               />
             </label>
-            <label className="flex cursor-pointer items-center gap-2.5">
+            {/* <label className="flex cursor-pointer items-center gap-2.5">
               <input
                 {...register("paymentMethod")}
                 type="radio"
@@ -172,8 +190,8 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 alt=""
                 className="h-[35px] w-[70px] rounded-md border border-[#E0E0E0] object-contain px-1"
               />
-            </label>
-            <label className="flex cursor-pointer items-center gap-2.5">
+            </label> */}
+            {/* <label className="flex cursor-pointer items-center gap-2.5">
               <input
                 {...register("paymentMethod")}
                 type="radio"
@@ -188,10 +206,10 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 alt=""
                 className="h-[35px] w-[70px] rounded-md border border-[#E0E0E0] object-contain px-1"
               />
-            </label>
+            </label> */}
           </div>
 
-          {paymentMethod === "bank" && (
+          {/* {paymentMethod === "bank" && (
             <div className="rounded-sm bg-[#F3F3F3] p-4">
               <div className="text-travel-primary mb-2.5 text-[16px] font-semibold">
                 Thông tin chuyển khoản
@@ -202,7 +220,7 @@ export const BookingForm = ({ setIsRedirecting }: BookingFormProps) => {
                 <div className="">STK: 2909082004</div>
               </div>
             </div>
-          )}
+          )} */}
 
           <div className="mt-8 text-center">
             <button

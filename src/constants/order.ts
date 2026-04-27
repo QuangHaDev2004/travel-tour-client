@@ -5,8 +5,8 @@
  */
 export const orderStatusList = [
   {
-    label: "Khởi tạo",
-    value: "initial",
+    label: "Chờ xác nhận",
+    value: "pending_confirm",
     color: "#ffa756",
     colorBg: "rgba(255, 167, 86, 0.2)",
   },
@@ -19,6 +19,12 @@ export const orderStatusList = [
   {
     label: "Đã hủy",
     value: "cancel",
+    color: "#ef3826",
+    colorBg: "rgba(239, 56, 38, 0.2)",
+  },
+  {
+    label: "Hủy tự động",
+    value: "cancel_expired",
     color: "#ef3826",
     colorBg: "rgba(239, 56, 38, 0.2)",
   },

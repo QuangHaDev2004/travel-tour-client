@@ -18,7 +18,7 @@ export const HomeLastMinuteDeals = ({
           {/* Info */}
           <div className="w-full text-center text-white md:w-[calc(50%-32px)] lg:w-[calc(32%-32px)] xl:w-[calc(25%-32px)]">
             <h2 className="mb-2.5 text-[28px] font-bold uppercase sm:mt-6">
-              ƯU ĐÃI 2025 TOUR GIỜ CHÓT
+              ƯU ĐÃI {new Date().getFullYear()} TOUR GIỜ CHÓT
             </h2>
             <p className="mb-9 text-xs font-normal">
               Chuyến đi trong mơ đang chờ bạn, ưu đãi đặc biệt cho những ai đặt
