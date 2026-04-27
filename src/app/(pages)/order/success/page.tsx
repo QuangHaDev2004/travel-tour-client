@@ -7,10 +7,10 @@ import { ClearCart } from "./components/ClearCart";
 export default async function OrderSuccessPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     orderCode: string;
     phone: string;
-  };
+  }>;
 }) {
   const { orderCode, phone } = await searchParams;
   const orderDetail = await getOrderDetail({ orderCode, phone });
