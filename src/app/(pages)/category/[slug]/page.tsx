@@ -6,7 +6,7 @@ import { BreadCrumb } from "@/components/breadcrumb/BreadCrumb";
 export default async function CategoryDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const { cityList } = await getCityList();
